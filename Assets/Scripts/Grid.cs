@@ -282,9 +282,9 @@ namespace Gazeus {
             Draw();
         }
 
-        public bool RotatePiece (Piece pieceToRotate)
+        public bool RotatePiece (Piece pieceToRotate, bool clockwise = false)
         {
-            List<Vector2Int> nextCellsPosition = pieceToRotate.GetNextRotationCells();
+            List<Vector2Int> nextCellsPosition = pieceToRotate.GetNextRotationCells(clockwise);
             Utils.AddOffset( nextCellsPosition, pieceToRotate.Offset );
 
             if (IsValidCellsIgnoringPiece( nextCellsPosition, pieceToRotate ))

@@ -16454,37 +16454,38 @@ MonoBehaviour:
         m_Action: Action Move Down
         m_Flags: 0
       m_Flags: 0
-    actionRotate:
-      m_Name: Action Rotate
+    actionRotateLeft:
+      m_Name: Action Rotate Left
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: fd22ad26-507e-479e-80cc-f5ce93af8b16
+      m_Id: 9fd2a770-6743-4f26-8d90-cca55642455f
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: a4f837e1-52ec-441f-bd8a-37292391a9ce
-        m_Path: <Keyboard>/upArrow
+        m_Id: cdb0ad19-db38-4d1b-93ea-fc4a8e7d54e7
+        m_Path: <Keyboard>/q
         m_Interactions: 
         m_Processors: 
         m_Groups: 
-        m_Action: Action Rotate
+        m_Action: Action Rotate Left
         m_Flags: 0
+      m_Flags: 0
+    actionRotateRight:
+      m_Name: Action Rotate Right
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9a0108ba-f78a-4bac-9329-0b54443b56f7
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
       - m_Name: 
-        m_Id: 39784186-c0e5-4a07-bd0d-a707794b500a
-        m_Path: <Keyboard>/w
+        m_Id: 0143e97d-8849-4195-8931-aa50842a4fae
+        m_Path: <Keyboard>/e
         m_Interactions: 
         m_Processors: 
         m_Groups: 
-        m_Action: Action Rotate
-        m_Flags: 0
-      - m_Name: 
-        m_Id: 506bccfb-e225-47e3-950a-8145d4c06457
-        m_Path: <Gamepad>/dpad/up
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Action Rotate
+        m_Action: Action Rotate Right
         m_Flags: 0
       m_Flags: 0
     actionPauseResume:

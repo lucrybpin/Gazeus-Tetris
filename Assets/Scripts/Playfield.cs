@@ -49,7 +49,8 @@ namespace Gazeus {
             inputHandler.ActionMoveLeft.performed += (ctx) => { MoveLeft(); };
             inputHandler.ActionMoveRight.performed += (ctx) => { MoveRight(); };
             inputHandler.ActionMoveDown.performed += (ctx) => { MoveDown(); };
-            inputHandler.ActionRotate.performed += (ctx) => { Rotate(); };
+            inputHandler.ActionRotateLeft.performed += (ctx) => { RotateLeft(); };
+            inputHandler.ActionRotateRight.performed += (ctx) => { RotateRight(); };
             inputHandler.ActionPauseResume.performed += (ctx) => { HandlePauseResume(); };
             inputHandler.ActionHardDrop.performed += (ctx) => { HardDrop(); };
         }
@@ -125,10 +126,17 @@ namespace Gazeus {
                 grid.Draw(dos_text);
         }
 
-        private void Rotate ()
+        private void RotateLeft ()
         {
             if (!inputHandler.MovementsEnabled) return;
             if (grid.RotatePiece( currentPiece ))
+                grid.Draw(dos_text);
+        }
+
+        private void RotateRight()
+        {
+            if (!inputHandler.MovementsEnabled) return;
+            if (grid.RotatePiece( currentPiece, true ))
                 grid.Draw(dos_text);
         }
 

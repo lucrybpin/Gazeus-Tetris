@@ -30,17 +30,30 @@ namespace Gazeus {
             currentRotation = ( currentRotation + 1 ) % 4;
         }
 
-        public List<Vector2Int> GetNextRotationCells ()
+        public List<Vector2Int> GetNextRotationCells (bool clockwiwe = false)
         {
             List<Vector2Int> cellsToCopy = null;
-            if (currentRotation == 0)
-                cellsToCopy = Utils.CopyCells( Tetromino.CellsRotation1 );
-            if (currentRotation == 1)
-                cellsToCopy = Utils.CopyCells( Tetromino.CellsRotation2 );
-            if (currentRotation == 2)
-                cellsToCopy = Utils.CopyCells( Tetromino.CellsRotation3 );
-            if (currentRotation == 3)
-                cellsToCopy = Utils.CopyCells( Tetromino.CellsRotation0 );
+            if (clockwiwe == true)
+            {
+                if (currentRotation == 0)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation3);
+                if (currentRotation == 1)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation0);
+                if (currentRotation == 2)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation1);
+                if (currentRotation == 3)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation2);
+            } else
+            {
+                if (currentRotation == 0)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation1);
+                if (currentRotation == 1)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation2);
+                if (currentRotation == 2)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation3);
+                if (currentRotation == 3)
+                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation0);
+            }
 
             return cellsToCopy;
         }

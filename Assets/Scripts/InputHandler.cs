@@ -10,7 +10,8 @@ namespace Gazeus {
         [SerializeField] InputAction actionMoveLeft;
         [SerializeField] InputAction actionMoveRight;
         [SerializeField] InputAction actionMoveDown;
-        [SerializeField] InputAction actionRotate;
+        [SerializeField] InputAction actionRotateLeft;
+        [SerializeField] InputAction actionRotateRight;
         [SerializeField] InputAction actionPauseResume;
         [SerializeField] InputAction actionHardDrop;
 
@@ -20,7 +21,8 @@ namespace Gazeus {
         public InputAction ActionMoveLeft { get => actionMoveLeft; }
         public InputAction ActionMoveRight { get => actionMoveRight; }
         public InputAction ActionMoveDown { get => actionMoveDown; }
-        public InputAction ActionRotate { get => actionRotate; }
+        public InputAction ActionRotateLeft { get => actionRotateLeft; }
+        public InputAction ActionRotateRight { get => actionRotateRight; }
         public InputAction ActionPauseResume { get => actionPauseResume; }
         public InputAction ActionHardDrop { get => actionHardDrop; }
         
@@ -36,7 +38,8 @@ namespace Gazeus {
             actionMoveLeft.Enable();
             actionMoveRight.Enable();
             actionMoveDown.Enable();
-            actionRotate.Enable();
+            actionRotateLeft.Enable();
+            actionRotateRight.Enable();
             actionPauseResume.Enable();
             actionHardDrop.Enable();
         }
@@ -47,7 +50,8 @@ namespace Gazeus {
             actionMoveLeft.Disable();
             actionMoveRight.Disable();
             actionMoveDown.Disable();
-            actionRotate.Disable();
+            actionRotateLeft.Disable();
+            actionRotateRight.Disable();
             actionPauseResume.Disable();
             actionHardDrop.Disable();
         }
