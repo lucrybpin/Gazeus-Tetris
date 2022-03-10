@@ -1,10 +1,11 @@
+using Gazeus.GameComponents;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Gazeus {
+namespace Gazeus.Utils {
 
     public class BackgroundPieces : MonoBehaviour {
         List<Rotate> rotatingPieces = new List<Rotate>();

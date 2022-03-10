@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gazeus {
+namespace Gazeus.Managers {
 
     public enum Songs {
         MainMenu,
@@ -47,7 +47,7 @@ namespace Gazeus {
         {
             Setup();
             PlaySound( Songs.MainMenu );
-            //StartCoroutine( RepeatSongOverTime() );
+            StartCoroutine( RepeatSongOverTime() );
         }
 
         public void PlaySongAfterTime(int song)
@@ -67,7 +67,7 @@ namespace Gazeus {
             currentSong = song;
             audioSource.clip = audioClips [ ( int ) song ];
             audioSource.Play();
-            soundFadeCo = FadeVolume( 10f, 0.34f );
+            soundFadeCo = FadeVolume( 10f, 0.1f );
             StartCoroutine( soundFadeCo );
         }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gazeus {
+namespace Gazeus.Utils {
 
     public enum CellColor {
         CellWhite = -1,
@@ -16,6 +16,7 @@ namespace Gazeus {
     }
 
     public static class Utils {
+
         static string materialsPath = "Materials/";
         static string prefabsPath = "Prefabs/";
 

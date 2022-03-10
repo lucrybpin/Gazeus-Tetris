@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Gazeus.Utils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gazeus {
+namespace Gazeus.GameComponents {
 
     [System.Serializable]
     public class Grid {
@@ -28,7 +29,7 @@ namespace Gazeus {
         public void Setup (Playfield playfield)
         {
             playField = playfield;
-            this.cellPrefab = Utils.GetPrefab( "Cell Cube" );
+            this.cellPrefab = Utils.Utils.GetPrefab( "Cell Cube" );
             this.gridParent = playfield.transform;
             OnFinishInstantiating.AddListener(playfield.InputHandler.Enable);
         }
@@ -78,7 +79,7 @@ namespace Gazeus {
 
                         int cellValue = GetCellValue( i, j );
 
-                        cellCube.GetComponent<MeshRenderer>().material = Utils.GetMaterial( CellColor.CellWhite );
+                        cellCube.GetComponent<MeshRenderer>().material = Utils.Utils.GetMaterial( CellColor.CellWhite );
                         cellCube.value = cellValue;
                         cellCube.position = new Vector2Int( i, j );
                         cellCubes.Add( cellCube );
@@ -127,11 +128,11 @@ namespace Gazeus {
                 linePrint = linePrint + '|' + '\n';
             }
 
-            Debug.Log(linePrint);
+            //if (linePrint != "")
+            //    Debug.Log(linePrint);
+
             if (dos_text != null)
-            {
                 dos_text.text = linePrint;
-            }
             
         }
 
@@ -259,7 +260,7 @@ namespace Gazeus {
         public bool RotatePiece (Piece pieceToRotate, bool clockwise = false)
         {
             List<Vector2Int> nextCellsPosition = pieceToRotate.GetNextRotationCells(clockwise);
-            Utils.AddOffset( nextCellsPosition, pieceToRotate.Offset );
+            Utils.Utils.AddOffset( nextCellsPosition, pieceToRotate.Offset );
 
             if (IsValidCellsIgnoringPiece( nextCellsPosition, pieceToRotate ))
             {

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Gazeus.Utils;
 
-namespace Gazeus {
+namespace Gazeus.GameComponents {
 
     public class CellCube : MonoBehaviour {
         [SerializeField] public Vector2Int position;
@@ -35,7 +36,7 @@ namespace Gazeus {
 
         public void SetMaterial (CellColor cellColor)
         {
-            GetComponent<MeshRenderer>().material = Utils.GetMaterial( ( CellColor ) cellColor );
+            GetComponent<MeshRenderer>().material = Utils.Utils.GetMaterial( ( CellColor ) cellColor );
         }
 
         public void WaveEffect ()

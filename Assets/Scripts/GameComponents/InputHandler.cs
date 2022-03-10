@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Gazeus {
+namespace Gazeus.GameComponents {
     [System.Serializable]
     public class InputHandler {
         [SerializeField] bool movementsEnabled;

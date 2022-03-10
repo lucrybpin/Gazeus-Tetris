@@ -1,9 +1,11 @@
 using Gazeus;
+using Gazeus.GameComponents;
+using Gazeus.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace gazeus
+namespace Gazeus.Managers
 {
     public class GameManager : MonoBehaviour
     {
@@ -49,7 +51,6 @@ namespace gazeus
             AudioManager.Instance.EndCurrentSound();
             playField.gameObject.SetActive(true);
             blackFader.FadeInOut(1);
-            UIManager.Instance.EnableAfterTime(UIManager.Instance.ButtonNewGame.gameObject);
             UIManager.Instance.DisableAfterTime(UIManager.Instance.PanelMainMenu.gameObject);
             AudioManager.Instance.PlaySongAfterTime(1);
             playField.SetClassicMode();
@@ -61,28 +62,20 @@ namespace gazeus
             AudioManager.Instance.EndCurrentSound();
             playField.gameObject.SetActive(true);
             blackFader.FadeInOut(1);
-            UIManager.Instance.EnableAfterTime(UIManager.Instance.ButtonNewGame.gameObject);
             UIManager.Instance.DisableAfterTime(UIManager.Instance.PanelMainMenu.gameObject);
             AudioManager.Instance.PlaySongAfterTime(1);
             playField.SetCrazyMode();
             playField.StartGameAfterTime(2);
         }
 
-        public void ShowControls()
-        {
-            UIManager.Instance.ShowControls();
-        }
-
         public void OpenMainMenu()
         {
             AudioManager.Instance.EndCurrentSound();
             blackFader.FadeInOut(1);
-            UIManager.Instance.EnableAfterTime(UIManager.Instance.PanelMainMenu.gameObject);
+            UIManager.Instance.ClearDosText();
             AudioManager.Instance.PlaySongAfterTime(0);
             playField.SetTimeScale(1);
-            UIManager.Instance.HideScore();
             playField.ClearGrid3D();
-            UIManager.Instance.HidePauseResume();
             playField.StopGameLoopTick();
         }
     }

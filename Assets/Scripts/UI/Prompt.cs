@@ -5,8 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using System.Text.RegularExpressions;
+using Gazeus.Managers;
 
-namespace gazeus
+namespace Gazeus.UI
 {
     public class Prompt : MonoBehaviour, IDragHandler, IPointerDownHandler
     {
@@ -14,6 +15,8 @@ namespace gazeus
         [SerializeField] private RectTransform promptRectTransform;
         [SerializeField] private Canvas promptCanvas;
         [SerializeField] private TMP_Text input;
+        [SerializeField] private TMP_InputField input_field;
+        [SerializeField] private TMP_Text score;
 
         [SerializeField] InputAction actionProcessCommand;
         public InputAction ActionProcessCommand { get => actionProcessCommand; }
@@ -24,6 +27,10 @@ namespace gazeus
             actionProcessCommand.performed += (ctx) => { ProcessCommand(); };
         }
 
+        private void Start()
+        {
+        }
+
         public void OnDrag(PointerEventData eventData)
         {
             promptRectTransform.anchoredPosition += eventData.delta / promptCanvas.scaleFactor;
@@ -32,6 +39,17 @@ namespace gazeus
         public void OnPointerDown(PointerEventData eventData)
         {
             promptRectTransform.SetAsLastSibling();
+            input_field.Select();
+        }
+        
+        public void ClearScore()
+        {
+            score.text = "";
+        }
+
+        public void UpdateScore()
+        {
+            score.text = "score\n"+ GameManager.Instance.PlayField.Score;
         }
 
         private void ProcessCommand()
@@ -48,19 +66,14 @@ namespace gazeus
 
             if (Regex.IsMatch(input.text, "tetris -menu"))
             {
+                ClearScore();
                 GameManager.Instance.OpenMainMenu();
-            }
-
-            if (Regex.IsMatch(input.text, "tetris -commands"))
-            {
-                GameManager.Instance.ShowControls();
             }
 
             if (Regex.IsMatch(input.text, "tetris -exit"))
             {
                 Application.Quit();
             }
-            //Debug.Log("Input: " + input.text);
         }
     }
 }

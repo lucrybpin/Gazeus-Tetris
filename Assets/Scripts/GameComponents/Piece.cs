@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gazeus {
+namespace Gazeus.GameComponents {
 
     [System.Serializable]
     public class Piece {
@@ -19,8 +19,8 @@ namespace Gazeus {
 
             this.tetromino = tetromino;
             this.cells = new List<Vector2Int>();
-            this.cells = Utils.CopyCells( tetromino.CellsRotation0 );
-            Utils.AddOffset( this.cells, offset );
+            this.cells = Utils.Utils.CopyCells( tetromino.CellsRotation0 );
+            Utils.Utils.AddOffset( this.cells, offset );
             this.currentRotation = 0;
             this.offset = offset;
         }
@@ -36,23 +36,23 @@ namespace Gazeus {
             if (clockwiwe == true)
             {
                 if (currentRotation == 0)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation3);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation1);
                 if (currentRotation == 1)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation0);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation2);
                 if (currentRotation == 2)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation1);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation3);
                 if (currentRotation == 3)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation2);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation0);
             } else
             {
                 if (currentRotation == 0)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation1);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation3);
                 if (currentRotation == 1)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation2);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation2);
                 if (currentRotation == 2)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation3);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation1);
                 if (currentRotation == 3)
-                    cellsToCopy = Utils.CopyCells(Tetromino.CellsRotation0);
+                    cellsToCopy = Utils.Utils.CopyCells(Tetromino.CellsRotation0);
             }
 
             return cellsToCopy;

@@ -1,17 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 using UnityEngine.UI;
+using Gazeus.GameComponents;
 
-namespace Gazeus {
+namespace Gazeus.Managers {
 
     public class UIManager : MonoBehaviour {
 
         private static UIManager instance;
 
-        [SerializeField] CanvasGroup blackFader;
+        //[SerializeField] CanvasGroup blackFader;
         [SerializeField] TMP_Text scoreText;
         [SerializeField] GameObject scorePanel;
 
@@ -19,6 +18,7 @@ namespace Gazeus {
         [SerializeField] GameObject panelPauseResume;
         [SerializeField] GameObject panelControls;
         [SerializeField] Button buttonNewGame;
+        [SerializeField] TMP_Text dos_text;
 
         public static UIManager Instance { get; private set; }
         public Button ButtonNewGame { get => buttonNewGame; }
@@ -37,7 +37,6 @@ namespace Gazeus {
         private void Setup ()
         {
             Playfield playField = FindObjectOfType<Playfield>();
-            playField.OnScoreChanged.AddListener( SetScore );
         }
 
         public void EnableAfterTime (GameObject gameObject)
@@ -62,48 +61,9 @@ namespace Gazeus {
             gameObject.SetActive( false );
         }
 
-
-        public void ShowScore ()
+        public void ClearDosText()
         {
-            scorePanel.SetActive( true );
-        }
-
-        public void HideScore ()
-        {
-            scorePanel.SetActive( false );
-        }
-
-        public void ShowControls()
-        {
-            panelControls.SetActive(true);
-        }
-
-        public void HidePauseResume()
-        {
-            panelPauseResume.SetActive(false);
-        }
-
-        public void SetScore (int newScore)
-        {
-            string prefix;
-            string posfix = "</color>";
-
-            if (newScore >= 0 && newScore < 200)
-                prefix = "<color=white>";
-            else if (newScore >= 200 && newScore < 300)
-                prefix = "<color=#00AAFF>";
-            else if (newScore >= 300 && newScore < 400)
-                prefix = "<color=#8C78AA>";
-            else if (newScore >= 400 && newScore < 500)
-                prefix = "<color=#348C46>";
-            else if (newScore >= 500 && newScore < 600)
-                prefix = "<color=#FAFA78>";
-            else if (newScore >= 600 && newScore < 700)
-                prefix = "<color=#FF8C34>";
-            else
-                prefix = "<color=#FA7878>";
-
-            scoreText.text = prefix + newScore.ToString() + posfix;
+            dos_text.text = "";
         }
 
         private void SetupSingleton()

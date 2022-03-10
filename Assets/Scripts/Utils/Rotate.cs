@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gazeus {
+namespace Gazeus.Utils {
 
     public class Rotate : MonoBehaviour {
 

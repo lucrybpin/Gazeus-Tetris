@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-namespace Gazeus {
+namespace Gazeus.GameComponents {
 
     [System.Serializable]
     public class UnityEventScore : UnityEvent<int> {
@@ -40,6 +40,7 @@ namespace Gazeus {
         public Grid Grid { get => grid; }
         public Piece CurrentPiece { get => currentPiece; }
         public InputHandler InputHandler { get => inputHandler; }
+        public int Score { get => score; }
 
         private void OnEnable ()
         {
@@ -175,7 +176,7 @@ namespace Gazeus {
                 while (isPaused)
                     yield return null;
 
-                yield return new WaitForSeconds( 4.25f );
+                yield return new WaitForSeconds( 0.25f );
 
                 if (grid.MovePiece( currentPiece, Vector2Int.down ))
                 {

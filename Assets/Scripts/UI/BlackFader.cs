@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gazeus {
+namespace Gazeus.UI {
 
     [RequireComponent(typeof(CanvasGroup))]
     public class BlackFader : MonoBehaviour {
