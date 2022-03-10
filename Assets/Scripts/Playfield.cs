@@ -43,7 +43,6 @@ namespace Gazeus {
 
         private void OnEnable ()
         {
-            //inputHandler.OnEnable();
             Setup();
 
             inputHandler.ActionMoveLeft.performed += (ctx) => { MoveLeft(); };
@@ -176,7 +175,7 @@ namespace Gazeus {
                 while (isPaused)
                     yield return null;
 
-                yield return new WaitForSeconds( 0.25f );
+                yield return new WaitForSeconds( 4.25f );
 
                 if (grid.MovePiece( currentPiece, Vector2Int.down ))
                 {

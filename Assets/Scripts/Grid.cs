@@ -103,28 +103,6 @@ namespace Gazeus {
         {
             string charactere   = "";
             string linePrint    = "";
-            //for (int j = 0; j < SizeY; j++)
-            //{
-            //    linePrint = linePrint + j.ToString("D2");
-            //    for (int i = 0; i < SizeX; i++)
-            //    {
-            //        int cellValue = GetCellValue( i, j );
-            //        CellCube cellCubeFound = null;
-
-            //        for (int n = 0; n < cellCubes.Count; n++)
-            //            if (cellCubes[n].position == new Vector2Int(i, j))
-            //                cellCubeFound = cellCubes[n];
-
-            //        if (cellCubeFound != null)
-            //        {
-            //            cellCubeFound.SetMaterial( ( CellColor ) cellValue );
-            //            cellCubeFound.value = cellValue;
-            //            charactere = (cellValue == -1) ? " " : "X"; 
-            //        }
-            //        linePrint = linePrint + charactere;
-            //    }
-            //    linePrint = linePrint + '|' + '\n';
-            //}
 
             for (int j = sizeY-1; j >= 0; j--)
             {
@@ -239,12 +217,8 @@ namespace Gazeus {
             for (int i = 0; i < cells.Count; i++)
             {
                 if (!IsCellInsideTheGrid( cells [ i ] ) ||
-                    ( !IsCellFree( cells [ i ] ) && !piece.Cells.Contains( cells [ i ] ) )) //Consider only cells that are not from this piece
-                {
-                    //Debug.Log( "Cell :" + piece.Cells [ i ] + " can't move to " + cells [ i ] );
+                    ( !IsCellFree( cells [ i ] ) && !piece.Cells.Contains( cells [ i ] ) ))
                     return false;
-                }
-
             }
             return true;
         }
@@ -316,11 +290,7 @@ namespace Gazeus {
 
                 if (!IsCellInsideTheGrid( nextCellPosition ) ||
                     ( !IsCellFree( nextCellPosition ) && !pieceToMove.Cells.Contains( nextCellPosition ) )) //Consider only cells that are not from this piece
-                {
-                    //Debug.Log( "Can't Move cell:" + pieceToMove.Cells [ i ] + " to " + nextCellPosition );
                     return false;
-                }
-
             }
 
             //Move
